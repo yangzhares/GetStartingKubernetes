@@ -23,7 +23,6 @@ ExecStart=/opt/kubernetes/bin/apiserver  \\
 	--etcd_servers=${KUBE_ETCD_SERVERS} \\
 	--address=${KUBE_API_ADDRESS} \\
 	--port=${KUBE_API_PORT} \\
-	--machines=${MINION_ADDRESSES} \\
 	--kubelet_port=${MINION_PORT} \\
 	--allow_privileged=${KUBE_ALLOW_PRIV} \\
 	--portal_net=${KUBE_SERVICE_ADDRESSES}
