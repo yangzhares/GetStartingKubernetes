@@ -17,7 +17,7 @@ Description=Kubernetes API Server
 Documentation=https://github.com/GoogleCloudPlatform/kubernetes
 
 [Service]
-ExecStart=/opt/kubernetes/bin/apiserver  \\
+ExecStart=/opt/kubernetes/bin/kube-apiserver  \\
 	--logtostderr=${KUBE_LOGTOSTDERR} \\
 	--v=${KUBE_LOG_LEVEL} \\
 	--etcd_servers=${KUBE_ETCD_SERVERS} \\

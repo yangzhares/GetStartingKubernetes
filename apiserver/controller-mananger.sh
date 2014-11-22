@@ -10,7 +10,7 @@ Description=Kubernetes Controller Manager
 Documentation=https://github.com/GoogleCloudPlatform/kubernetes
 
 [Service]
-ExecStart=/opt/kubernetes/bin/controller-manager \\
+ExecStart=/opt/kubernetes/bin/kube-controller-manager \\
     --logtostderr=${KUBE_LOGTOSTDERR} \\
     --v=${KUBE_LOG_LEVEL} \\
 	--machines=${MINION_ADDRESSES} \\

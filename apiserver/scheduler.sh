@@ -10,7 +10,7 @@ Description=Kubernetes Scheduler
 Documentation=https://github.com/GoogleCloudPlatform/kubernetes
 
 [Service]
-ExecStart=/opt/kubernetes/bin/scheduler \\
+ExecStart=/opt/kubernetes/bin/kube-scheduler \\
     --logtostderr=${KUBE_LOGTOSTDERR} \\
     --v=${KUBE_LOG_LEVEL} \\
     --master=${KUBE_MASTER}
