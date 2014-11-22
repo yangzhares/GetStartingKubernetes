@@ -7,6 +7,20 @@ cat <<EOF >$DOCKER_CONFIG
 OPTIONS=--selinux-enabled=false
 EOF
 
+cat <<EOF >/usr/lib/systemd/system/docker.socket
+[Unit]
+Description=Docker Socket for the API
+
+[Socket]
+ListenStream=/var/run/docker.sock
+SocketMode=0660
+SocketUser=root
+SocketGroup=docker
+
+[Install]
+WantedBy=sockets.target
+EOF
+
 source $DOCKER_CONFIG
 cat <<EOF >/usr/lib/systemd/system/docker.service
 [Unit]
