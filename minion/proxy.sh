@@ -13,7 +13,7 @@ Description=Kubernetes Proxy
 After=network.target
 
 [Service]
-ExecStart=/opt/kubernetes/bin/proxy \\
+ExecStart=/opt/kubernetes/bin/kube-proxy \\
     --logtostderr=${KUBE_LOGTOSTDERR} \\
     --v=${KUBE_LOG_LEVEL} \\
     --bind_address=${KUBE_BIND_ADDRESS} \\
