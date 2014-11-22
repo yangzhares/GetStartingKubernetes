@@ -13,6 +13,7 @@ Documentation=https://github.com/GoogleCloudPlatform/kubernetes
 ExecStart=/opt/kubernetes/bin/controller-manager \\
     --logtostderr=${KUBE_LOGTOSTDERR} \\
     --v=${KUBE_LOG_LEVEL} \\
+	--machines=${MINION_ADDRESSES} \\
     --master=${KUBE_MASTER}
 Restart=on-failure
 
