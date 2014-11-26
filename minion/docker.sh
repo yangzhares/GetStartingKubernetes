@@ -7,15 +7,14 @@ DOCKER_CONFIG=/etc/sysconfig/docker
 brctl addbr kbr0
 cat <<EOF> /etc/sysconfig/network-scripts/ifcfg-kbr0
 DEVICE=kbr0
-	ONBOOT=yes
-	BOOTPROTO=static
-	IPADDR=172.17.1.1
-	NETMASK=255.255.255.0
-	GATEWAY=172.17.1.0
-	USERCTL=no
-	TYPE=Bridge
-	IPV6INIT=no
-
+ONBOOT=yes
+BOOTPROTO=static
+IPADDR=172.17.1.1
+NETMASK=255.255.255.0
+GATEWAY=172.17.1.0
+USERCTL=no
+TYPE=Bridge
+IPV6INIT=no
 EOF
 systemctl restart network
  
