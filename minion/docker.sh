@@ -3,6 +3,26 @@
 DOCKER_BRIDGE=kbr0
 DOCKER_CONFIG=/etc/sysconfig/docker
 
+## create Linux bridge
+brctl addbr kbr0
+cat <<EOF> /etc/sysconfig/network-scripts/ifcfg-kbr0
+DEVICE=kbr0
+	ONBOOT=yes
+	BOOTPROTO=static
+	IPADDR=172.17.1.1
+	NETMASK=255.255.255.0
+	GATEWAY=172.17.1.0
+	USERCTL=no
+	TYPE=Bridge
+	IPV6INIT=no
+
+EOF
+systemctl restart network
+ 
+## Install Docker
+wget https://get.docker.com/builds/Linux/x86_64/docker-latest -O /usr/bin/docker
+chmod +x /usr/bin/docker
+
 cat <<EOF >$DOCKER_CONFIG
 OPTIONS=--selinux-enabled=false
 EOF
