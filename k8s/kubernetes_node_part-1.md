@@ -1,4 +1,4 @@
-## Kubernetes Node
+## Kubernetes Node Part 1
 
 ###1. Node
 在Kubernetes中，Node表示一个工作节点。
@@ -61,15 +61,10 @@ NodeSpec用于描述一个被创建的节点的属性，其中
 ###5. NodeStatus
 
 	type NodeStatus struct {
-	// Capacity represents the available resources of a node.
 		Capacity ResourceList `json:"capacity,omitempty"`
-	// NodePhase is the current lifecycle phase of the node.
 		Phase NodePhase `json:"phase,omitempty"`
-	// Conditions is an array of current node conditions.
 		Conditions []NodeCondition `json:"conditions,omitempty"`
-	// Queried from cloud provider, if available.
 		Addresses []NodeAddress `json:"addresses,omitempty"`
-	// NodeSystemInfo is a set of ids/uuids to uniquely identify the node
 		NodeInfo NodeSystemInfo `json:"nodeInfo,omitempty"`
 	}
 NodeStatus包含节点当前的状态信息，主要如Capacity、Phase、Conditions、Addresses以及NodeInfo。
