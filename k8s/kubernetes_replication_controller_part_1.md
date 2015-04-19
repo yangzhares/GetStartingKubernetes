@@ -32,10 +32,11 @@ ReplicationController的定义如下：
 	* Replicas：Replicas表示ReplicationControllerSpec包含的Pod的数量，通过Replicas可以快速的scale-up和scale-down；
 	* Selector：通过Selector可以查询到的Pod数量应等于Replicas；
 	* TemplateRef：如果检测到replicas不足，TemplateRef描述的pod将被创建，若设置了Template，则TemplateRef被忽略；
-	* Template：同TemplateRef一样，如果检测到replicas不足，PodTemplateSpec描述的pod将被创建，Template相对TemplateRef拥有更高的优先级。
+	* Template：同TemplateRef一样，如果检测到replicas不足，PodTemplateSpec描述的pod将被创建，Template相对TemplateRef拥有更高的优先级，PodSpec详细参考[这里](https://github.com/yangzhares/GetStartingKubernetes/blob/master/k8s/kubernetes_pod_part_1.md#2-podspec)。
 		
 			type PodTemplateSpec struct {
 				ObjectMeta `json:"metadata,omitempty"`
 				Spec PodSpec `json:"spec,omitempty"`
 			}
 
+* ReplicationControllerStatus：ReplicationControllerStatus表示当前Replicationcontroller的状态信息，可能该信息相对延迟于系统的最新信息，实际上ReplicationControllerStatus表示实际Replicas的数量。
